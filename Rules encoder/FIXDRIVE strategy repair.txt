@@ -1,0 +1,22 @@
+rule "S1 rule1"
+trigger
+    always
+condition
+    front_vehicle_closer_than(10)
+then
+    follow_dist(10)
+    yield_dist(15)
+    overtake_dist(20)
+    dynamic_obstacle_stop_dist(10)
+    dynamic_obstacle_decrease_ratio(1)
+end
+
+rule "S1 rule2"
+trigger
+    always
+condition
+    is_traffic_light(red)
+    traffic_light_distance_leq(10)
+then
+    traffic_light_stop_dist(5)
+end
